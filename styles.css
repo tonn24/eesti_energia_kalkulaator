@@ -1,0 +1,138 @@
+html, body {
+    background-color: #ECF6FA;
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+h1 {
+    color: #5a6874;
+}
+
+hr {
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    border: 0;
+    border-top: 1px solid rgba(0,0,0,.1);
+    color: #f7fafa;
+}
+
+.formDiv {
+    background-color: #FFFFFF;
+    width: 100%;
+    height: 100%;
+    padding: 0;
+    box-sizing: border-box;
+    text-align: center;
+    position: absolute;
+}
+
+#checkboxDiv {
+    list-style:none;
+    display: flex;
+    flex-wrap: nowrap;
+    flex-direction: row;
+    align-content: center;
+}
+
+.checkboxInput {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#volume {
+    color: #34b233;
+    height: 70px;
+    width: 300px;
+}
+
+.container {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.square {
+    position: relative;
+    width: 80vmin;
+    box-sizing: border-box;
+    border-radius: 50%;
+}
+
+.square:after {
+    content: "";
+    display: block;
+    padding-bottom: 100%;
+    border-radius: 50%;
+}
+
+.checkboxElement {
+    width: 20rem;
+    padding: 10px;
+    margin: 5px;
+    border: 1px #f3f3f3 solid;
+    border-radius: 10%;
+    box-shadow: 2px 2px #f3f3f3;
+}
+
+column1 {
+    align-items: end;
+}
+
+.column1 {
+    text-align: left;
+
+}
+
+.column2 {
+    text-align: right;
+}
+
+#monthlyPayment {
+    border: 2px solid red;
+    width: 20em;
+}
+
+#mainTable {
+    border: 1px solid red;
+    width: 50rem;
+}
+
+.submitButton {
+    background-color: #4CAF50;
+    border: 1px solid green;
+    color: white;
+    padding: 10px 24px;
+    cursor: pointer;
+    float: left;
+    margin-top: 2rem;
+}
+.submitButton:after {
+    transition-duration: 0.4s;
+    background-color: #34b233;
+}
+
+.submitButton:hover {
+    background-color: #4CAF50; /* Green */
+    color: white;
+}
+
+#teenus {
+    text-align: left;
+    margin: 2rem;
+}
+
+#submit {
+    text-align: center ;
+}
+
+
+
+
+
+
+

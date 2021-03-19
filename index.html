@@ -9,6 +9,96 @@
     <title>Kuumaksete kalkulaator</title>
 </head>
 <body>
+    <div class="container">
+        <div class="square">
+        <div class="formDiv">
+            <h1>Kuumaksete kalkulaator</h1>
 
+            <p id="teenus">Teenus:</p>
+            <div id="checkboxDiv">
+                <div class="checkboxElement">
+                    <input type="checkbox" class="checkboxInput" id="päikesepaneelid" name="päikesepaneelid"
+                           checked>
+                    <label class="checkboxLabel" for="päikesepaneelid">Päikesepaneelid</label>
+                </div>
+
+                <div class="checkboxElement">
+                    <input type="checkbox" class="checkboxInput" id="soojuspump" name="soojuspump">
+                    <label class="checkboxLabel" for="soojuspump">Soojuspump</label>
+                </div>
+
+                <div class="checkboxElement">
+                    <input type="checkbox" class="checkboxInput" id="elekterGaas" name="elekterGaas">
+                    <label class="checkboxLabel" for="elekterGaas">Elektri või gaasitööd</label>
+                </div>
+
+                <div class="checkboxElement">
+                    <input type="checkbox" class="checkboxInput" id="offGrid" name="offGrid">
+                    <label class="checkboxLabel" for="offGrid">Off grid võrguvaba elekter</label>
+                </div>
+
+                <div class="checkboxElement">
+                    <input  type="checkbox" class="checkboxInput" id="elektriauto" name="elektriauto">
+                    <label class="checkboxLabel" for="elektriauto">Eletriautode laadimislahendused</label>
+                </div>
+            </div>
+
+            <hr>
+
+            <table id="mainTable">
+                <tr>
+                <td>
+                <div id="summa">
+                    <p>Summa:</p>
+                    <input type="range" id="volume" min="300" max="25000" step="1">
+                </div>
+
+                <select id="periood" name="periood" class="select">
+                    <option value="periood">60 kuud</option>
+                </select>
+                <select id="sissemakse" name="sissemakse" class="select">
+                    <option value="sissemakse">Sissemakse(eur):</option>
+                </select>
+                </td>
+
+                <td>
+                <table id="monthlyPayment">
+                    <tr>
+                        <td class="column1"><p>Intress</p></td>
+                        <td class="column2">7.90%</td>
+                    </tr>
+                    <tr>
+                        <td class="column1"><p>Lepingutasu</p></td>
+                        <td class="column2">0</td>
+                    </tr>
+                    <tr>
+                        <td class="column1"><p>Igakuine haldustasu</p></td>
+                        <td class="column2">0</td>
+                    </tr>
+                    <tr>
+                        <td class="column1"><p>Periood</p></td>
+                        <td class="column2">60 kuud</td>
+                    </tr>
+                    <tr>
+                        <td class="column1"><p>Projekti maksumus</p></td>
+                        <td class="column2">20184</td>
+                    </tr>
+                    <tr>
+                        <td class="column1"><p><b>Kuumakse</b></p></td>
+                        <td class="column2">80.00€</td>
+                    </tr>
+                </table>
+                </td>
+                </tr>
+            </table>
+
+            <div id="submit">
+                <input name="submitButton" class="submitButton" type="submit" value="Esitan taotluse >">
+            </div>
+        </div>
+        </div>
+    </div>
+
+    <script type="text/javascript" src="script.js"></script>
 </body>
 </html>
