@@ -6,59 +6,81 @@
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="styles.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <title>Kuumaksete kalkulaator</title>
 </head>
 <body>
+
+
     <div class="container">
         <div class="square">
         <div class="formDiv">
             <h1>Kuumaksete kalkulaator</h1>
 
-            <p id="teenus">Teenus:</p>
-            <div id="checkboxDiv">
-                <div class="checkboxElement">
-                    <input type="checkbox" class="checkboxInput" id="päikesepaneelid" name="päikesepaneelid"
-                           checked>
-                    <label class="checkboxLabel" for="päikesepaneelid">Päikesepaneelid</label>
-                </div>
+            <table id="mainTable">
+                <tr>
+                    <p id="teenus">Teenus:</p>
+                    <div id="checkboxDiv">
+                        <div class="checkboxElement">
+                            <input type="checkbox" onChange="myFunction(question_text_1, this)" class="checkboxInput" id="päikesepaneelid" name="päikesepaneelid"
+                                   checked class="colored">
+                            <label class="checkboxLabel" for="päikesepaneelid">Päikesepaneelid</label>
+                        </div>
 
-                <div class="checkboxElement">
-                    <input type="checkbox" class="checkboxInput" id="soojuspump" name="soojuspump">
-                    <label class="checkboxLabel" for="soojuspump">Soojuspump</label>
-                </div>
+                        <div class="checkboxElement">
+                            <input type="checkbox" class="checkboxInput" id="soojuspump" name="soojuspump">
+                            <label class="checkboxLabel" for="soojuspump">Soojuspump</label>
+                        </div>
 
-                <div class="checkboxElement">
-                    <input type="checkbox" class="checkboxInput" id="elekterGaas" name="elekterGaas">
-                    <label class="checkboxLabel" for="elekterGaas">Elektri või gaasitööd</label>
-                </div>
+                        <div class="checkboxElement">
+                            <input type="checkbox" class="checkboxInput" id="elekterGaas" name="elekterGaas">
+                            <label class="checkboxLabel" for="elekterGaas">Elektri või gaasitööd</label>
+                        </div>
 
-                <div class="checkboxElement">
-                    <input type="checkbox" class="checkboxInput" id="offGrid" name="offGrid">
-                    <label class="checkboxLabel" for="offGrid">Off grid võrguvaba elekter</label>
-                </div>
+                        <div class="checkboxElement">
+                            <input type="checkbox" class="checkboxInput" id="offGrid" name="offGrid">
+                            <label class="checkboxLabel" for="offGrid">Off grid võrguvaba elekter</label>
+                        </div>
 
-                <div class="checkboxElement">
-                    <input  type="checkbox" class="checkboxInput" id="elektriauto" name="elektriauto">
-                    <label class="checkboxLabel" for="elektriauto">Eletriautode laadimislahendused</label>
-                </div>
-            </div>
+                        <div class="checkboxElement">
+                            <input  type="checkbox" class="checkboxInput" id="elektriauto" name="elektriauto">
+                            <label class="checkboxLabel" for="elektriauto">Eletriautode laadimislahendused</label>
+                        </div>
+                    </div>
+                </tr>
 
             <hr>
 
-            <table id="mainTable">
                 <tr>
                 <td>
                 <div id="summa">
                     <p>Summa:</p>
-                    <input type="range" id="volume" min="300" max="25000" step="1">
+                    <input type="range" id="volume" min="300" max="25000" step="1" name="foo">
+                    <output for="foo" onforminput="value = foo.valueAsNumber;"></output>
                 </div>
 
-                <select id="periood" name="periood" class="select">
-                    <option value="periood">60 kuud</option>
-                </select>
-                <select id="sissemakse" name="sissemakse" class="select">
-                    <option value="sissemakse">Sissemakse(eur):</option>
-                </select>
+                    <hr>
+
+                    <div>
+                    <table id="periodTable">
+                        <tr class="periodTableText">
+                            <span><td></span><p>Periood:</p></td></span>
+                            <span><td><p>Sissemakse(eur):</p></td></span>
+                        </tr>
+                        <tr>
+                            <td class="column2">
+                                <select id="periood" name="periood" class="select">
+                                    <option  value="periood">60 kuud</option>
+                                </select>
+                            </td>
+                            <td class="column1">
+                                <select id="sissemakse" name="sissemakse" class="select">
+                                    <option value="sissemakse">-</option>
+                                </select>
+                            </td>
+                        </tr>
+                    </table>
+                    </div>
                 </td>
 
                 <td>
@@ -67,7 +89,7 @@
                         <td class="column1"><p>Intress</p></td>
                         <td class="column2">7.90%</td>
                     </tr>
-                    <tr>
+                    <tr class="grayRow">
                         <td class="column1"><p>Lepingutasu</p></td>
                         <td class="column2">0</td>
                     </tr>
@@ -75,7 +97,7 @@
                         <td class="column1"><p>Igakuine haldustasu</p></td>
                         <td class="column2">0</td>
                     </tr>
-                    <tr>
+                    <tr class="grayRow">
                         <td class="column1"><p>Periood</p></td>
                         <td class="column2">60 kuud</td>
                     </tr>
@@ -83,7 +105,7 @@
                         <td class="column1"><p>Projekti maksumus</p></td>
                         <td class="column2">20184</td>
                     </tr>
-                    <tr>
+                    <tr class="kuumakse">
                         <td class="column1"><p><b>Kuumakse</b></p></td>
                         <td class="column2">80.00€</td>
                     </tr>
@@ -93,11 +115,40 @@
             </table>
 
             <div id="submit">
-                <input name="submitButton" class="submitButton" type="submit" value="Esitan taotluse >">
+                <input name="submitButton" class="submitButton" type="submit" value="Esitan taotluse &#10095;">
             </div>
         </div>
         </div>
     </div>
+
+    <script>
+        $(document).ready(function(){
+            $('input:checkbox').click(function() {
+                $('input:checkbox').not(this).prop('checked', false);
+                // var div = $(this).closest('.checkboxElement');
+                // $(this).is(":checked") ? div.addClass("coloredCheckboxDiv") : div.removeClass("coloredCheckboxDiv");
+            });
+        });
+
+        $('input[type=checkbox]').on('click', function() {
+            let div = $(this).closest('.checkboxElement');
+            $(this).is(":checked") ? div.addClass("coloredCheckboxDiv") : div.removeClass("coloredCheckboxDiv");
+        });
+
+        var $table = document.querySelector('#mainTable' +
+            '');
+
+        $table.addEventListener("click", function(ev){
+            if (ev.target.tagName == "INPUT") {
+                if (ev.target.checked) {
+                    ev.target.parentNode.parentNode.classList.add("selected");
+                }else {
+                    ev.target.parentNode.parentNode.classList.remove("selected");
+                }
+            }
+        });
+
+    </script>
 
     <script type="text/javascript" src="script.js"></script>
 </body>
