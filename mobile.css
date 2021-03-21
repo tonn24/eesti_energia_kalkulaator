@@ -6,10 +6,25 @@ html, body {
     padding: 0;
     font-family: Helvetica, Arial, Sans-Serif;
     color: #6d7a84;
+    -webkit-transform: scale(0.6);
+    -moz-transform: scale(0.6);
+    transform: scale(0.6);
+    min-width: 0;
+    min-height: 0;
+}
+
+.menu, .main, .right {
+    width: 50%;
+}
+
+body{
+    -webkit-transform: scale(0.6);
+    -moz-transform: scale(0.6);
+    transform: scale(0.6);
 }
 
 select {
-    width: 20em;
+    width: 14em;
     height: 3rem;
     margin: 0;
     padding: 0;
@@ -34,17 +49,18 @@ hr {
 .formDiv {
     background-color: #FFFFFF;
     width: 100%;
-    height: 110%;
+    height: 100%;
     padding: 0;
     box-sizing: border-box;
     text-align: center;
     position: absolute;
     border-radius: 15px;
+    justify-content: center;
 }
 
 #checkboxDiv {
     list-style: none;
-    display: flex;
+    display: block;
     flex-wrap: nowrap;
     flex-direction: row;
     align-items: center;
@@ -58,12 +74,11 @@ hr {
 #volume {
     color: #34b233;
     height: 2rem;
-    width: 30rem;
+    width: 15rem;
+    text-align: left;
 }
 
 .container {
-    width: 100%;
-    height: 100%;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -71,13 +86,17 @@ hr {
 
 .square {
     position: relative;
-    width: 70rem;
-    height: 44rem;
+    width: 1000px;
+    display: flex;
+    height: 90rem;
     box-sizing: border-box;
     border-radius: 0 0 30px 30px;
+    align-items: center;
+    margin-bottom: 2rem;
 }
 
 .square:after {
+    align-items: center;
     content: "";
     display: block;
     padding-bottom: 100%;
@@ -137,9 +156,10 @@ column1 {
 }
 
 #mainTable {
-    width: 50em;
+    table-layout: fixed;
+    width: 100%;
     margin: auto;
-    display: inline;
+
 }
 
 .submitButton {
@@ -209,6 +229,9 @@ output {
     bottom: 175%;
     left: 0;
 }
+
+
+
 output:after {
     content: "";
     position: absolute;
@@ -236,11 +259,6 @@ body{
         width: 80%;
         padding: 0;
     }
-
-    #checkboxDiv {
-        display: block;
-    }
-
     .right {
         width: 100%;
     }
@@ -250,17 +268,4 @@ body{
     .menu, .main, .right {
         width: 50%;
     }
-
-    #checkboxDiv {
-        display: block;
-    }
-
-    body{
-        -webkit-transform: scale(0.6);
-        -moz-transform: scale(0.6);
-        transform: scale(0.6);
-    }
 }
-
-
-

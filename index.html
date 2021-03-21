@@ -134,6 +134,26 @@
             $(this).is(":checked") ? div.addClass("coloredCheckboxDiv") : div.removeClass("coloredCheckboxDiv");
         });
 
+        if (screen.width <= 700) {
+            document.location = "mobile.html";
+        }
+
+        function doRelocation() {
+
+            var currentWidth = window.innerWidth,
+                breakpoint = 1000,
+                newLocation = 'mobile.html';
+
+            if (currentWidth < breakpoint) {
+                window.location.replace(newLocation);
+            }
+
+        }
+
+        doRelocation();
+
+        window.addEventListener('resize', doRelocation);
+
     </script>
 
     <script type="text/javascript" src="script.js"></script>
