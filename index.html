@@ -150,7 +150,9 @@
 
         }
 
-        doRelocation();
+        $(document).ready(function(){
+            doRelocation();
+        });
 
         window.addEventListener('resize', doRelocation);
 
