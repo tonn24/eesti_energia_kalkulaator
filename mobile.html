@@ -21,8 +21,9 @@
                     <p id="teenus">Teenus:</p>
                     <div id="checkboxDiv">
                         <div class="checkboxElement">
-                            <input type="checkbox" onChange="myFunction(question_text_1, this)" class="checkboxInput" id="päikesepaneelid" name="päikesepaneelid"
-                                   checked class="colored">
+                            <input type="checkbox" onChange="myFunction(question_text_1, this)" class="checkboxInput"
+                                   id="päikesepaneelid" name="päikesepaneelid"
+                                   class="colored">
                             <label class="checkboxLabel" for="päikesepaneelid">Päikesepaneelid</label>
                         </div>
 
@@ -42,7 +43,7 @@
                         </div>
 
                         <div class="checkboxElement">
-                            <input  type="checkbox" class="checkboxInput" id="elektriauto" name="elektriauto">
+                            <input type="checkbox" class="checkboxInput" id="elektriauto" name="elektriauto">
                             <label class="checkboxLabel" for="elektriauto">Eletriautode laadimislahendused</label>
                         </div>
                     </div>
@@ -54,8 +55,8 @@
                     <td>
                         <div id="summa">
                             <p>Summa:</p>
-                            <input type="range" id="volume" min="300" max="25000" step="1" name="foo">
-                            <output for="foo" onforminput="value = foo.valueAsNumber;"></output>
+                            <input type="range" oninput="getCurrentValue(this.value)" id="volume" min="300" max="25000" step="1" name="foo">
+                            <span id="currentValue">12500</span>
                         </div>
 
                         <hr>
@@ -63,13 +64,14 @@
                         <div>
                             <table id="periodTable">
                                 <tr class="periodTableText">
-                                    <span><td></span><p>Periood:</p></td></span>
+                                    <span><td></span>
+                                    <p>Periood:</p></td></span>
                                     <span><td><p>Sissemakse(eur):</p></td></span>
                                 </tr>
                                 <tr class="column1">
                                     <td class="column1">
                                         <select id="periood" name="periood" class="select">
-                                            <option  value="periood">60 kuud</option>
+
                                         </select>
                                     </td>
                                     <td class="column1">
@@ -81,32 +83,32 @@
                             </table>
                         </div>
                     </td>
-                    </table>
-                    <hr>
-                        <table id="monthlyPayment">
-                                <td class="column1"><p>Intress</p></td>
-                                <td class="column2">7.90%</td>
-                            <tr class="grayRow">
-                                <td class="column1"><p>Lepingutasu</p></td>
-                                <td class="column2">0</td>
-                            </tr>
-                            <tr>
-                                <td class="column1"><p>Igakuine haldustasu</p></td>
-                                <td class="column2">0</td>
-                            </tr>
-                            <tr class="grayRow">
-                                <td class="column1"><p>Periood</p></td>
-                                <td class="column2">60 kuud</td>
-                            </tr>
-                            <tr>
-                                <td class="column1"><p>Projekti maksumus</p></td>
-                                <td class="column2">20184</td>
-                            </tr>
-                            <tr class="kuumakse">
-                                <td class="column1"><p><b>Kuumakse</b></p></td>
-                                <td class="column2">80.00€</td>
-                            </tr>
-                        </table>
+            </table>
+            <hr>
+            <table id="monthlyPayment">
+                <td class="column1"><p>Intress</p></td>
+                <td class="column2" id="interestValue">7.90%</td>
+                <tr class="grayRow">
+                    <td class="column1"><p>Lepingutasu</p></td>
+                    <td class="column2" id="lepingutasu">0</td>
+                </tr>
+                <tr>
+                    <td class="column1"><p>Igakuine haldustasu</p></td>
+                    <td class="column2" id="haldustasu">0</td>
+                </tr>
+                <tr class="grayRow">
+                    <td class="column1"><p>Periood</p></td>
+                    <td class="column2" id="kuude-arv">60 kuud</td>
+                </tr>
+                <tr>
+                    <td class="column1"><p>Projekti maksumus</p></td>
+                    <td class="column2" id="projekti-maksumus">20184</td>
+                </tr>
+                <tr class="kuumakse">
+                    <td class="column1"><p><b>Kuumakse</b></p></td>
+                    <td class="column2" id="kuumakse">80.00€</td>
+                </tr>
+            </table>
 
             <div id="submit">
                 <input name="submitButton" class="submitButton" type="submit" value="Esitan taotluse &#10095;">
@@ -114,44 +116,6 @@
         </div>
     </div>
 </div>
-
-<script>
-    $(document).ready(function(){
-        $('input:checkbox').click(function() {
-            $('input:checkbox').not(this).prop('checked', false);
-            // var div = $(this).closest('.checkboxElement');
-            // $(this).is(":checked") ? div.addClass("coloredCheckboxDiv") : div.removeClass("coloredCheckboxDiv");
-        });
-    });
-
-    $('input[type=checkbox]').on('click', function() {
-        let div = $(this).closest('.checkboxElement');
-        $(this).is(":checked") ? div.addClass("coloredCheckboxDiv") : div.removeClass("coloredCheckboxDiv");
-    });
-
-    if (screen.width <= 700) {
-        document.location = "mobile.html";
-    }
-
-    function doRelocation() {
-
-        var currentWidth = window.innerWidth,
-            breakpoint = 800,
-            newLocation = 'index.html';
-
-        if (currentWidth > breakpoint) {
-            window.location.replace(newLocation);
-        }
-
-    }
-    $(document).ready(function(){
-        doRelocation();
-    });
-
-
-    window.addEventListener('resize', doRelocation);
-
-</script>
 
 <script type="text/javascript" src="script.js"></script>
 </body>

@@ -13,14 +13,16 @@ html, body {
     min-height: 0;
 }
 
-.menu, .main, .right {
-    width: 50%;
-}
+form { position: relative; margin: 50px; width: 1200px; }
 
-body{
+body {
     -webkit-transform: scale(0.6);
     -moz-transform: scale(0.6);
     transform: scale(0.6);
+}
+
+.menu, .main, .right {
+    width: 50%;
 }
 
 select {
@@ -46,6 +48,32 @@ hr {
     color: #f7fafa;
 }
 
+input[type="checkbox"] {
+    visibility: hidden;
+}
+
+input[type="checkbox"] + label:before {
+    border: 1px solid #f7fafa;
+    content: "\00a0";
+    width: 3rem;
+    height: 3rem;
+    margin: 1px;
+    align-self: center;
+    display: block;
+    border-radius: 10%;
+    box-shadow: 2px 2px #f3f3f3;
+}
+
+input[type="checkbox"]:checked + label:before {
+    background: #34b233;
+    color: #FFFFFF;
+    content: "\2713";
+}
+
+input[type="checkbox"]:checked + label:after {
+    font-weight: bold;
+}
+
 .formDiv {
     background-color: #FFFFFF;
     width: 100%;
@@ -58,24 +86,9 @@ hr {
     justify-content: center;
 }
 
-#checkboxDiv {
-    list-style: none;
-    display: block;
-    flex-wrap: nowrap;
-    flex-direction: row;
-    align-items: center;
-}
-
 .checkboxInput {
     display: flex;
     margin: auto;
-}
-
-#volume {
-    color: #34b233;
-    height: 2rem;
-    width: 15rem;
-    text-align: left;
 }
 
 .container {
@@ -113,53 +126,12 @@ hr {
     box-shadow: 2px 2px #f3f3f3;
 }
 
-input[type="checkbox"] {
-    visibility: hidden;
-}
-
-input[type="checkbox"] + label:before {
-    border: 1px solid #f7fafa;
-    content: "\00a0";
-    width: 15rem;
-    height: 5rem;
-    padding: 10px;
-    margin: 5px;
-    border-radius: 10%;
-    box-shadow: 2px 2px #f3f3f3;
-}
-
-input[type="checkbox"]:checked + label:before {
-    background: #34b233;
-    color: #FFFFFF;
-    content: "\2713";
-}
-
-input[type="checkbox"]:checked + label:after {
-    font-weight: bold;
-}
-
-column1 {
-    align-items: end;
-}
-
 .column1 {
     text-align: left;
-
 }
 
 .column2 {
     text-align: right;
-}
-
-#monthlyPayment {
-    width: 30em;
-}
-
-#mainTable {
-    table-layout: fixed;
-    width: 100%;
-    margin: auto;
-
 }
 
 .submitButton {
@@ -187,25 +159,12 @@ column1 {
     color: white;
 }
 
-#teenus {
-    text-align: left;
-    margin: 2rem;
-}
-
 .grayRow {
     background-color: #f7fafa;
 }
 
 .kuumakse {
     background-color: #ECF6FA;
-}
-
-#periodTable {
-    text-align: left;
-    width: 35em;
-    height: 10rem;
-    padding: 0px;
-    margin: 0px;
 }
 
 .periodTableText {
@@ -216,39 +175,45 @@ column1 {
     background-color:#f7fafa;
 }
 
-output {
-    position: absolute;
-    background-image: linear-gradient(#444444, #999999);
-    width: 40px;
-    height: 30px;
-    text-align: center;
-    color: white;
-    border-radius: 10px;
-    display: inline-block;
-    font: bold 15px/30px Georgia;
-    bottom: 175%;
-    left: 0;
+#checkboxDiv {
+    list-style: none;
+    display: block;
+    flex-wrap: nowrap;
+    flex-direction: row;
+    align-items: center;
 }
 
-
-
-output:after {
-    content: "";
-    position: absolute;
-    width: 0;
-    height: 0;
-    border-top: 10px solid #999999;
-    border-left: 5px solid transparent;
-    border-right: 5px solid transparent;
-    top: 100%;
-    left: 50%;
-    margin-left: -5px;
-    margin-top: -1px;
+#volume {
+    color: #34b233;
+    height: 2rem;
+    width: 15rem;
+    text-align: left;
 }
-form { position: relative; margin: 50px; width: 1200px; }
 
-body{
-    -webkit-transform: scale(0.9);
-    -moz-transform: scale(0.9);
-    transform: scale(0.9);
+#monthlyPayment {
+    width: 30em;
+}
+
+#mainTable {
+    table-layout: fixed;
+    width: 100%;
+    margin: auto;
+
+}
+
+#teenus {
+    text-align: left;
+    margin: 2rem;
+}
+
+#periodTable {
+    text-align: left;
+    width: 35em;
+    height: 10rem;
+    padding: 0px;
+    margin: 0px;
+}
+
+#kuumakse {
+    color: #34b233;
 }

@@ -6,6 +6,8 @@ let kuudeArv = document.getElementById("kuude-arv");
 let projektiMaksumus =  document.getElementById("projekti-maksumus");
 let kuumakse = document.getElementById("kuumakse");
 let currentValue = document.getElementById("currentValue");
+let selectValue = $('#periood option:selected').val();
+var val = $('#periood').val();
 
 $(document).ready(function(){
     $('input:checkbox').click(function() {
@@ -19,27 +21,31 @@ $('input[type=checkbox]').on('click', function() {
 });
 
 
-function doRelocation() {
-    let executed = false;
+function doRelocationForSmallerScreen() {
     let currentWidth = window.innerWidth,
         breakpoint = 800,
         newLocation = 'mobile.html';
 
-
-    if (executed === false && currentWidth < breakpoint) {
-        executed = true;
+    if (currentWidth < breakpoint) {
         window.location.replace(newLocation);
     }
 }
 
+function doRelocationForLargerScreen() {
+    let currentWidth = window.innerWidth,
+        breakpoint = 800,
+        newLocation = 'index.html';
 
-if ($(window).width() < 960) {
-    window.addEventListener('resize', doRelocation);
+    if (currentWidth > breakpoint) {
+        window.location.replace(newLocation);
+    }
 }
 
+window.addEventListener('resize', doRelocationForSmallerScreen);
+window.addEventListener('resize', doRelocationForLargerScreen);
 
 
-let currentRangeValue = document.getElementById("currentValue").innerHTML;
+
 
 $('#päikesepaneelid').change(function() {
     if ($("#päikesepaneelid").is(':checked')) {
@@ -55,21 +61,14 @@ $('#päikesepaneelid').change(function() {
 
 $('#soojuspump').change(function() {
     document.getElementById("currentValue").innerHTML = 1000;
-    function defaultValue() {
-        selectOne(5, 72);
-        intress.innerHTML = "7.90%";
-        lepingutasu.innerHTML = "30€";
-        haldustasu.innerHTML = "1€";
-        currentValue.innerHTML = slider.value;
-    }
 
     if ($("#soojuspump").is(':checked')) {
         document.getElementById('periood').options[0] = new Option("48 kuud");
-        defaultValue();
+        defaultValue("7.90%", "30€", "1€", 5, 72);
         slider.oninput = function( ) {
             if ($("#soojuspump").is(':checked')) {
                 if (slider.value < 2000) {
-                    defaultValue();
+                    defaultValue("7.90%", "30€", "1€", 5, 72);
                 } else if(slider.value < 6000){
                     lepingutasu.innerHTML = "20€";
                     haldustasu.innerHTML = "1€";
@@ -89,23 +88,15 @@ $('#soojuspump').change(function() {
 });
 
 $('#elekterGaas').change(function() {
-    function defaultValue() {
-        intress.innerHTML = "9.90%";
-        document.getElementById("currentValue").innerHTML = '1000';
-        lepingutasu.innerHTML = "30€";
-        haldustasu.innerHTML = "1€";
-        currentValue.innerHTML = slider.value;
-        selectOne(5, 72);
-    }
 
     if ($("#elekterGaas").is(':checked')) {
         document.getElementById('periood').options[0] = new Option("48 kuud");
         document.getElementById("currentValue").innerHTML = '1000';
-        defaultValue();
+        defaultValue("9.90%", "30€", "1€", 5, 72);
         slider.oninput = function( ) {
             if ($("#elekterGaas").is(':checked')) {
                 if (slider.value < 1000) {
-                    defaultValue();
+                    defaultValue("9.90%", "30€", "1€", 5, 72);
                 } else if(slider.value < 2000){
                     lepingutasu.innerHTML = "20€";
                     haldustasu.innerHTML = "2€";
@@ -133,22 +124,13 @@ $('#elekterGaas').change(function() {
 
 $('#offGrid').change(function() {
 
-    function defaultValue() {
-        document.getElementById("currentValue").innerHTML = 5000;
-        selectOne(5, 72);
-        intress.innerHTML = "7.90%";
-        lepingutasu.innerHTML = "30€";
-        haldustasu.innerHTML = "0€";
-        currentValue.innerHTML = slider.value;
-    }
-
     if ($("#offGrid").is(':checked')) {
         document.getElementById('periood').options[0] = new Option("60 kuud");
-        defaultValue();
+        defaultValue("7.90%", "30€", "0€", 5, 72);
         slider.oninput = function( ) {
             if ($("#offGrid").is(':checked')) {
                 if (slider.value < 2000) {
-                   defaultValue();
+                    defaultValue("7.90%", "30€", "0€", 5, 72);
                 } else if(slider.value < 6000){
                     lepingutasu.innerHTML = "20€";
                     haldustasu.innerHTML = "0€";
@@ -169,30 +151,21 @@ $('#offGrid').change(function() {
 
 $('#elektriauto').change(function() {
 
-    function defaultValue() {
-        intress.innerHTML = "5.90%";
-        document.getElementById("currentValue").innerHTML = 5000;
-        lepingutasu.innerHTML = "50€";
-        haldustasu.innerHTML = "2€";
-        currentValue.innerHTML = slider.value;
-        selectOne(5, 72);
-    }
-
     if ($("#elektriauto").is(':checked')) {
         document.getElementById('periood').options[0] = new Option("60 kuud");
         document.getElementById("currentValue").innerHTML = 5000;
-        defaultValue();
+        // kuudeArv.innerHTML = val;
+        defaultValue("5.90%", "50€", "2€", 5, 72);
         slider.oninput = function( ) {
             if ($("#elektriauto").is(':checked')) {
                 if (slider.value < 2000) {
-                    defaultValue();
+                    defaultValue("5.90%", "50€", "2€", 5, 72);
                 } else if(slider.value < 6000){
                     lepingutasu.innerHTML = "40€";
                     haldustasu.innerHTML = "2€";
                     intress.innerHTML = "4.50%";
                     currentValue.innerHTML = slider.value;
                     selectOne(5, 72);
-
                 } else {
                     lepingutasu.innerHTML = "30€";
                     haldustasu.innerHTML = "2€";
@@ -214,5 +187,21 @@ function selectOne(start, end) {
     for (var i=start; i<=end; i+=6) {
         select.options[select.options.length] = new Option(i+1 + " kuud", i);
     }
+}
+
+function defaultValue(interest, lepTasu, halTasu, select1, select2) {
+    selectOne(select1, select2);
+    intress.innerHTML = "7.90%";
+    lepingutasu.innerHTML = "30€";
+    haldustasu.innerHTML = "1€";
+    currentValue.innerHTML = slider.value;
+}
+
+function projectCost() {
+    let projectCost = 0;
+
+
+
+    return projectCost;
 }
 
