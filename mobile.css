@@ -191,7 +191,7 @@ input[type="checkbox"]:checked + label:after {
 }
 
 #monthlyPayment {
-    width: 30em;
+    width: 25em;
 }
 
 #mainTable {
@@ -208,7 +208,7 @@ input[type="checkbox"]:checked + label:after {
 
 #periodTable {
     text-align: left;
-    width: 35em;
+    width: 30em;
     height: 10rem;
     padding: 0px;
     margin: 0px;
