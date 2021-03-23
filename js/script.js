@@ -3,16 +3,8 @@ let intress = document.getElementById("interestValue");
 let lepingutasu = document.getElementById("lepingutasu");
 let haldustasu = document.getElementById("haldustasu");
 let kuudeArv = document.getElementById("kuude-arv");
-let projektiMaksumus =  document.getElementById("projekti-maksumus");
-let kuumakse = document.getElementById("kuumakse");
 let currentValue = document.getElementById("currentValue");
-let sissemakse = document.getElementById("sissemakse");
-let selectValue = $('#periood option:selected').val();
-let val = $('#periood').val();
-let depositValue = document.getElementById("sissemakse");
 let periood = document.getElementById("periood");
-
-
 
 
 $(document).ready(function(){
@@ -51,17 +43,12 @@ window.addEventListener('resize', doRelocationForSmallerScreen);
 window.addEventListener('resize', doRelocationForLargerScreen);
 
 
-
-
 $('#päikesepaneelid').change(function() {
     if ($("#päikesepaneelid").is(':checked')) {
         document.getElementById('periood').options[0] = new Option("60 kuud");
         document.getElementById("currentValue").innerHTML = "5000";
-        selectOne(5, 120);
         slider.value = 5000;
-        intress.innerHTML = "7.90%";
-        lepingutasu.innerHTML = "50€";
-        haldustasu.innerHTML = "1€";
+        setValues("7.90%", "50€", "1€", 5, 120);
     }
 });
 
@@ -150,7 +137,7 @@ $('#elektriauto').change(function() {
     }
 });
 
-function getCurrentValue(myValue){
+const getCurrentValue = (myValue) => {
     document.getElementById("currentValue").innerHTML = myValue;
 }
 
@@ -167,11 +154,11 @@ const setValues = (interest, lepTasu, halTasu, select1, select2) => {
     lepingutasu.innerHTML = lepTasu;
     haldustasu.innerHTML = halTasu;
     currentValue.innerHTML = slider.value;
+    document.getElementById('sissemakse').setAttribute("max", slider.value);
 }
 
 const projectCost = () => {
     let projectCost = 0;
-
 
 
     return projectCost;
@@ -186,16 +173,5 @@ const showKuudeArv = () => {
 window.addEventListener("load", () => {
     periood.addEventListener("change",showKuudeArv);
     showKuudeArv();
-});
-
-const showDeposit = () => {
-    const sel = document.getElementById("periood");
-    let text = sel.options[sel.selectedIndex].text;
-    document.getElementById("kuude-arv").innerHTML = text;
-}
-
-window.addEventListener("load", () => {
-    depositValue.addEventListener("change",showDeposit);
-    show();
 });
 
