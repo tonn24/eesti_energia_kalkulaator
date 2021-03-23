@@ -5,7 +5,7 @@
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" href="mobile.css">
+    <link rel="stylesheet" href="stylesheets/mobile.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <title>Kuumaksete kalkulaator mobile</title>
 </head>
@@ -24,27 +24,27 @@
                             <input type="checkbox" onChange="myFunction(question_text_1, this)" class="checkboxInput"
                                    id="päikesepaneelid" name="päikesepaneelid"
                                    class="colored">
-                            <label class="checkboxLabel" for="päikesepaneelid">Päikesepaneelid</label>
+                            <label class="checkboxLabel" for="päikesepaneelid"><p>Päikesepaneelid</p></label>
                         </div>
 
                         <div class="checkboxElement">
                             <input type="checkbox" class="checkboxInput" id="soojuspump" name="soojuspump">
-                            <label class="checkboxLabel" for="soojuspump">Soojuspump</label>
+                            <label class="checkboxLabel" for="soojuspump"><p>Soojuspump</p></label>
                         </div>
 
                         <div class="checkboxElement">
                             <input type="checkbox" class="checkboxInput" id="elekterGaas" name="elekterGaas">
-                            <label class="checkboxLabel" for="elekterGaas">Elektri või gaasitööd</label>
+                            <label class="checkboxLabel" for="elekterGaas"><p>Elektri või gaasitööd</p></label>
                         </div>
 
                         <div class="checkboxElement">
                             <input type="checkbox" class="checkboxInput" id="offGrid" name="offGrid">
-                            <label class="checkboxLabel" for="offGrid">Off grid võrguvaba elekter</label>
+                            <label class="checkboxLabel" for="offGrid"><p>Off grid võrguvaba elekter</p></label>
                         </div>
 
                         <div class="checkboxElement">
                             <input type="checkbox" class="checkboxInput" id="elektriauto" name="elektriauto">
-                            <label class="checkboxLabel" for="elektriauto">Eletriautode laadimislahendused</label>
+                            <label class="checkboxLabel" for="elektriauto"><p>Eletriautode laadimislahendused</p></label>
                         </div>
                     </div>
                 </tr>
@@ -75,9 +75,8 @@
                                         </select>
                                     </td>
                                     <td class="column1">
-                                        <select id="sissemakse" name="sissemakse" class="select">
-                                            <option value="sissemakse">-</option>
-                                        </select>
+                                        <input type="number" id="sissemakse" class="select" name="sissemakse" min="1" max="5">
+                                    </td>
                                     </td>
                                 </tr>
                             </table>
@@ -117,5 +116,5 @@
     </div>
 </div>
 
-<script type="text/javascript" src="script.js"></script>
+<script type="text/javascript" src="js/script.js"></script>
 </body>

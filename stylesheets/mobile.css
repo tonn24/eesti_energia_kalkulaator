@@ -6,23 +6,18 @@ html, body {
     padding: 0;
     font-family: Helvetica, Arial, Sans-Serif;
     color: #6d7a84;
-}
-
-form {
-    position: relative;
-    margin: 50px;
-    width: 1200px;
-}
-
-body {
     -webkit-transform: scale(0.9);
     -moz-transform: scale(0.9);
     transform: scale(0.9);
+    min-width: 0;
+    min-height: 0;
 }
 
+form { position: relative; margin: 50px; width: 1200px; }
 
-select {
-    width: 20em;
+
+.select {
+    width: 14em;
     height: 3rem;
     margin: 0;
     padding: 0;
@@ -51,10 +46,11 @@ input[type="checkbox"] {
 input[type="checkbox"] + label:before {
     border: 1px solid #f7fafa;
     content: "\00a0";
-    width: 15rem;
-    height: 5rem;
-    padding: 10px;
-    margin: 5px;
+    width: 2rem;
+    height: 2rem;
+    margin: 1px;
+    align-self: center;
+    display: block;
     border-radius: 10%;
     box-shadow: 2px 2px #f3f3f3;
 }
@@ -72,12 +68,13 @@ input[type="checkbox"]:checked + label:after {
 .formDiv {
     background-color: #FFFFFF;
     width: 100%;
-    height: 110%;
+    height: 100%;
     padding: 0;
     box-sizing: border-box;
     text-align: center;
     position: absolute;
     border-radius: 15px;
+    justify-content: center;
 }
 
 .checkboxInput {
@@ -86,8 +83,6 @@ input[type="checkbox"]:checked + label:after {
 }
 
 .container {
-    width: 100%;
-    height: 100%;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -95,13 +90,17 @@ input[type="checkbox"]:checked + label:after {
 
 .square {
     position: relative;
-    width: 70rem;
-    height: 44rem;
+    width: 1000px;
+    display: flex;
+    height: 90rem;
     box-sizing: border-box;
     border-radius: 0 0 30px 30px;
+    align-items: center;
+    margin-bottom: 2rem;
 }
 
 .square:after {
+    align-items: center;
     content: "";
     display: block;
     padding-bottom: 100%;
@@ -126,20 +125,6 @@ input[type="checkbox"]:checked + label:after {
     text-align: right;
 }
 
-.kuumakse {
-    background-color: #ECF6FA;
-}
-
-.submitButton:after {
-    transition-duration: 0.4s;
-    background-color: #34b233;
-}
-
-.submitButton:hover {
-    background-color: #4CAF50; /* Green */
-    color: white;
-}
-
 .submitButton {
     background-color: #34b233;
     color: white;
@@ -155,50 +140,56 @@ input[type="checkbox"]:checked + label:after {
     -webkit-font-smoothing: antialiased;
 }
 
+.submitButton:after {
+    transition-duration: 0.4s;
+    background-color: #34b233;
+}
+
+.submitButton:hover {
+    background-color: #4CAF50; /* Green */
+    color: white;
+}
+
+.grayRow {
+    background-color: #f7fafa;
+}
+
+.kuumakse {
+    background-color: #ECF6FA;
+}
+
 .periodTableText {
     position: relative;
 }
 
-.coloredCheckboxDiv {
-    background-color: #f7fafa;
+.coloredCheckboxDiv{
+    background-color:#f7fafa;
 }
-
 
 #checkboxDiv {
     list-style: none;
-    display: flex;
+    display: block;
     flex-wrap: nowrap;
     flex-direction: row;
     align-items: center;
 }
 
 #volume {
-    -webkit-appearance: none;
-    background-color: #34b233;
-    height: 1rem;
-    width: 30rem;
-    border-radius: 20px;
-    border: none;
-    -webkit-transition: .2s;
-    transition: opacity .2s;
-}
-
-#volume:hover {
-    opacity: 1;
+    color: #34b233;
+    height: 2rem;
+    width: 15rem;
+    text-align: left;
 }
 
 #monthlyPayment {
-    width: 30em;
+    width: 25em;
 }
 
 #mainTable {
-    width: 50em;
+    table-layout: fixed;
+    width: 100%;
     margin: auto;
-    display: inline;
-}
 
-#summa {
-    text-align: left;
 }
 
 #teenus {
@@ -206,37 +197,14 @@ input[type="checkbox"]:checked + label:after {
     margin: 2rem;
 }
 
-.grayRow {
-    background-color: #f7fafa;
-}
-
-#kuumakse {
-    color: #34b233;
-}
-
 #periodTable {
     text-align: left;
-    width: 35em;
+    width: 25em;
     height: 10rem;
     padding: 0px;
     margin: 0px;
 }
 
-@media only screen and (max-width: 1000px) {
-    /* For tablets: */
-    .main {
-        width: 80%;
-        padding: 0;
-    }
-
-
-    #monthlyPayment {
-        width: 100%;
-    }
-}
-
-@media only screen and (max-width: 1100px) {
-    #monthlyPayment {
-        width: 100%;
-    }
+#kuumakse {
+    color: #34b233;
 }

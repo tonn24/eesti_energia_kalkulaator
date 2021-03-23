@@ -5,7 +5,7 @@
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="stylesheets/styles.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <title>Kuumaksete kalkulaator</title>
 </head>
@@ -15,38 +15,38 @@
         <div class="square">
         <div class="formDiv">
             <h1>Kuumaksete kalkulaator</h1>
-
             <table id="mainTable">
-                <tr>
-                    <p id="teenus">Teenus:</p>
-                    <div id="checkboxDiv">
-                        <div class="checkboxElement">
-                            <input type="checkbox" class="checkboxInput" id="päikesepaneelid" name="päikesepaneelid">
-                            <label class="checkboxLabel" for="päikesepaneelid">Päikesepaneelid</label>
-                        </div>
+                <div class="checkboxes">
+                    <tr>
+                        <p id="teenus">Teenus:</p>
+                        <div id="checkboxDiv">
+                            <div class="checkboxElement">
+                                <input type="checkbox" class="checkboxInput" id="päikesepaneelid" name="päikesepaneelid">
+                                <label class="checkboxLabel" for="päikesepaneelid"><p>Päikesepaneelid</p></label>
+                            </div>
 
-                        <div class="checkboxElement">
-                            <input type="checkbox" class="checkboxInput" id="soojuspump" name="soojuspump">
-                            <label class="checkboxLabel" for="soojuspump">Soojuspump</label>
-                        </div>
+                            <div class="checkboxElement">
+                                <input type="checkbox" class="checkboxInput" id="soojuspump" name="soojuspump">
+                                <label class="checkboxLabel" for="soojuspump"><p>Soojuspump</p></label>
+                            </div>
 
-                        <div class="checkboxElement">
-                            <input type="checkbox" class="checkboxInput" id="elekterGaas" name="elekterGaas">
-                            <label class="checkboxLabel" for="elekterGaas">Elektri või gaasitööd</label>
-                        </div>
+                            <div class="checkboxElement">
+                                <input type="checkbox" class="checkboxInput" id="elekterGaas" name="elekterGaas">
+                                <label class="checkboxLabel" for="elekterGaas"><p>Elektri või gaasitööd</p></label>
+                            </div>
 
-                        <div class="checkboxElement">
-                            <input type="checkbox" class="checkboxInput" id="offGrid" name="offGrid">
-                            <label class="checkboxLabel" for="offGrid">Off grid võrguvaba elekter</label>
-                        </div>
+                            <div class="checkboxElement">
+                                <input type="checkbox" class="checkboxInput" id="offGrid" name="offGrid">
+                                <label class="checkboxLabel" for="offGrid"><p>Off grid võrguvaba elekter</p></label>
+                            </div>
 
-                        <div class="checkboxElement">
-                            <input  type="checkbox" class="checkboxInput" id="elektriauto" name="elektriauto">
-                            <label class="checkboxLabel" for="elektriauto">Eletriautode laadimislahendused</label>
+                            <div class="checkboxElement">
+                                <input  type="checkbox" class="checkboxInput" id="elektriauto" name="elektriauto">
+                                <label class="checkboxLabel" for="elektriauto"><p>Eletriautode laadimislahendused</p></label>
+                            </div>
                         </div>
-                    </div>
-                </tr>
-
+                    </tr>
+                </div>
             <hr>
                 <tr>
                 <td>
@@ -72,9 +72,7 @@
                                 </select>
                             </td>
                             <td class="column1">
-                                <select id="sissemakse" name="sissemakse" class="select">
-                                    <option value="sissemakse">-</option>
-                                </select>
+                                <input type="number" id="sissemakse" class="select" name="sissemakse" min="1" max="5">
                             </td>
                         </tr>
                     </table>
@@ -97,7 +95,7 @@
                     </tr>
                     <tr class="grayRow">
                         <td class="column1"><p>Periood</p></td>
-                        <td class="column2" id="kuude-arv">60 kuud</td>
+                        <td class="column2" ><p id="kuude-arv">60 kuud</p></td>
                     </tr>
                     <tr>
                         <td class="column1"><p>Projekti maksumus</p></td>
@@ -121,6 +119,6 @@
         </div>
     </div>
 
-    <script type="text/javascript" src="script.js"></script>
+    <script type="text/javascript" src="js/script.js"></script>
 </body>
 </html>
